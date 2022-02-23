@@ -1,7 +1,7 @@
 const { DB_URL } = require("../config");
 const { Pool } = require("pg");
 
-const pool = new Pool({ connectionString : DB_URL.local });
+const pool = new Pool({ connectionString : DB_URL.elephant });
 
 const fetch = async(SQL , params) => {
     const client = await pool.connect();
