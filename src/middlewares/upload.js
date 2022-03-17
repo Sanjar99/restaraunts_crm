@@ -67,4 +67,20 @@ const mediaUploadUpdate = (req, res, next) => {
   });
 };
 
-module.exports = { imageUpload, mediaUpload, mediaUploadUpdate };
+const deleteUpload = (file) => {
+  if (file === null) {
+    return;
+  } else if (typeof file === "object") {
+    file.forEach((element) => {
+      unlink(join(__dirname, "../upload", element), (er) => {
+        console.log(er);
+      });
+    });
+  } else {
+    unlink(join(__dirname, "../upload", file), (er) => {
+      console.log(er);
+    });
+  }
+};
+
+module.exports = { imageUpload, mediaUpload, mediaUploadUpdate , deleteUpload};

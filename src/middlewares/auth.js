@@ -4,7 +4,6 @@ module.exports = {
     adminAuth : () => {
       try{
         const {tokenreg} = req.headers;
-        console.log(tokenreg);
         if(!tokenreg) throw new Error("BAD_REQUEST_TOKEN!");
         
         const {adminId} = verify(token);
